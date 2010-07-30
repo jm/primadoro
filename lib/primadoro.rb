@@ -55,8 +55,7 @@ module Primadoro
           @growler.notify "break time", "Break time!", "Get your break on..." rescue puts "! Growl not configured properly (make sure you allow network connections)"
         end
       rescue Exception
-        require 'rubygems'
-        retry 
+        require 'rubygems' and retry 
         
         puts "! Install ruby-growl for growl support (no Windows etc. support yet)"
       end
@@ -98,6 +97,8 @@ module Primadoro
           @app.pause rescue puts '! iTunes not running'
         end
       rescue Exception
+        require 'rubygems' and retry 
+        
         puts "! To use the iTunes integration, you need rubyosa installed! (no Windows etc. support yet)"
       end
     end
